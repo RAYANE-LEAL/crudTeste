@@ -14,6 +14,7 @@ class Endereco extends Model
   
 
     protected $table = 'enderecos';
+    protected $primaryKey = "endereco_id";
     protected $filable =[
        'rua',
        'numero',

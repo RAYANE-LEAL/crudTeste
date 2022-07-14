@@ -14,6 +14,7 @@ class Cliente extends Model
 
 
     protected $table = 'clientes';
+    protected $primaryKey = "cliente_id";
     protected  $fillable =[
         name,
         cpf,
@@ -26,8 +27,20 @@ class Cliente extends Model
     protected $casts = [
         'created_at' => 'datetime:d-m-Y H:i:s',
         'updated_at' => 'datetime:d-m-Y H:i:s',
-        'data_nascimento' => 'datetime:d-m-Y H:i:s',
+        'data_nascimento' => 'datetime:d-m-Y',
     ];
+
+    protected $appends = [
+        'primeiro_nome'
+    ];
+
+     protected function setPrimeiroNomeAttribute(){
+        $nome = $this->name;
+        $primeiro_nome = explode("", $nome);
+
+        $primeiro_nome = $primeiro_nome[0];
+        $this->primeiro_nome = $primeiro_nome; 
+     }
 
     public function endereco(){
         return $this->hasMany(Cliente::class, 'cliente_id', 'cliente_id');

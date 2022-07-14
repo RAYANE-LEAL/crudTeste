@@ -14,16 +14,24 @@ class Contato extends Model
     // use SoftDeletes;
 
     protected $table = 'contatos';
+    protected $primaryKey = "contato_id";
     protected $filable =[
        ddd,
        numero,
     ];
 
+    protected $appends = [
+        'numero_contato'
+    ];
+
+     protected function getNumeroContatoAttribute(){        
+        return $this->ddd . $this->numero;
+    }
+
     protected $casts = [
         'created_at' => 'datetime:d-m-Y H:i:s',
         'updated_at' => 'datetime:d-m-Y H:i:s',
-    ];
-
+    ];   
 }
  
     // Schema::table('contatos', function (Blueprint $table) {
