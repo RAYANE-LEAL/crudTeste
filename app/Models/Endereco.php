@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Endereco extends Model
 {
     use HasFactory;
+
+    protected $filable =[
+       'rua',
+       'numero',
+       'bairro',
+       'cidade',
+       'uf',
+       'ponto_referencia',
+    ];
 }

@@ -11,7 +11,6 @@ class Cliente extends Model
     use SoftDeletes;
 
     protected $filable =[
-        cliente_id,
         name,
         cpf,
         data_nascimento,
