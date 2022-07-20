@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
 class Contato extends Model
 {
     use HasFactory;
-    // use SoftDeletes;
+  
 
     protected $table = 'contatos';
     protected $primaryKey = "contato_id";
@@ -24,8 +24,13 @@ class Contato extends Model
         'numero_contato'
     ];
 
-     protected function getNumeroContatoAttribute(){        
-        return $this->ddd . $this->numero;
+     protected function getNumeroContatoAttribute(){           
+        $contato = $this->ddd . $this->numero; 
+        $telefone = $contato;
+
+        $telefone = $telefone[0];
+        $this->numero_contato = $telefone;
+        
     }
 
     protected $casts = [
@@ -33,12 +38,5 @@ class Contato extends Model
         'updated_at' => 'datetime:d-m-Y H:i:s',
     ];   
 }
- 
-    // Schema::table('contatos', function (Blueprint $table) {
-    //     $table->softDeletes();
-    // });
 
-    // Schema::table('contatos', function (Blueprint $table) {
-    //     $table->dropSoftDeletes();
-    // });
 

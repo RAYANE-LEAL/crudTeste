@@ -21,6 +21,7 @@ class Cliente extends Model
         data_nascimento,
         rg,
         email,   
+        cliente_id,
     ];
 
 
@@ -36,10 +37,10 @@ class Cliente extends Model
 
      protected function setPrimeiroNomeAttribute(){
         $nome = $this->name;
-        $primeiro_nome = explode("", $nome);
+        $primeiroNome = explode("", $nome);
 
-        $primeiro_nome = $primeiro_nome[0];
-        $this->primeiro_nome = $primeiro_nome; 
+        $primeiroNome = $primeiroNome[0];
+        $this->primeiro_nome = $primeiroNome; 
      }
 
     public function endereco(){
