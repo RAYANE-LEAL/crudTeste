@@ -16,8 +16,9 @@ class Contato extends Model
     protected $table = 'contatos';
     protected $primaryKey = "contato_id";
     protected $filable =[
-       ddd,
-       numero,
+       'ddd',
+       'numero',
+       'cliente_id'
     ];
 
     protected $appends = [

@@ -22,7 +22,7 @@ class Endereco extends Model
        'cidade',
        'uf',
        'ponto_referencia',
-       'cliente_id',
+       'cliente_id'
     ];
 
     protected $casts = [

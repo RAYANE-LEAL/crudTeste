@@ -16,12 +16,11 @@ class Cliente extends Model
     protected $table = 'clientes';
     protected $primaryKey = "cliente_id";
     protected  $fillable =[
-        name,
-        cpf,
-        data_nascimento,
-        rg,
-        email,   
-        cliente_id,
+        'name',
+        'cpf',
+        'data_nascimento',
+        'rg',
+        'email'
     ];
 
 
@@ -44,11 +43,11 @@ class Cliente extends Model
      }
 
     public function endereco(){
-        return $this->hasMany(Cliente::class, 'cliente_id', 'cliente_id');
+        return $this->oneMany(Cliente::class, 'cliente_id', 'cliente_id');
     }
 
     public function contato(){
-        return $this->oneMany(Cliente::class, 'cliente_id', 'cliente_id');
+        return $this->hasMany(Cliente::class, 'cliente_id', 'cliente_id');
     }
     
 }
